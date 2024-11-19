@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -70,6 +71,27 @@ public class Main {
                         }else{
                             System.out.println("Patient could not be inserted, please check all field inputs");
                         }
+                        break;
+                    case 2: //read the data from the db
+                        ArrayList<Patient> patients = dbr.getAllData();
+                        // Retrieve the data from the db
+                        // Store it as the patient arraylist
+                        // Check if its empty
+                        if(patients.isEmpty()){
+                            System.out.println("No patients found");
+                        }else{
+                            System.out.printf("%-5s | %-20s | %-12s | %-8s", "\nID", "Name", "Date", "Blood Type");
+                            System.out.println("-----------------------------------------------------------------");
+                            // Print out all the patients records into the table
+                            // This will require iterating through the patients arraylist
+
+                            for(Patient patient : patients){
+                                System.out.printf("%-5s | %-20s | %-12s | %-8s", patient.getPatientID(), patient.getName(), patient.getBloodType(), patient.getBloodType());
+                            }
+                            break;
+
+                        }
+
                 }
             }
 
