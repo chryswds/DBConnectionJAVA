@@ -91,6 +91,10 @@ public class Main {
                             break;
 
                         }
+                        case 3:
+                            System.out.println("Thank you for using our system");
+                            System.out.println("System exit");
+                            scanner.close(); // IO Stream and we don't want the user to be able to interact with the system
 
                 }
             }
