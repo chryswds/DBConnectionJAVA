@@ -25,7 +25,7 @@ public class DatabaseReader extends DB_Connection {
         // Try to connect to the database and retrieve the information
 
         try(
-                Connection conn = DriverManager.getConnection(DB_BASE_URL, USER, PASSWORD);
+                Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement();
                 ){
             // In this block we will handle any requirements for pulling the data from the db
@@ -40,8 +40,8 @@ public class DatabaseReader extends DB_Connection {
             // As long as we have more rows to go through we will keep iterating
             while(results.next()){
                 String name = results.getString("name"); // Patient name
-                String birthdate = results.getString("birth_date"); // Patient BD
-                String bloodtype = results.getString("blood_type"); // Patient BT
+                String birthdate = results.getString("birthdate"); // Patient BD
+                String bloodtype = results.getString("bloodtype"); // Patient BT
                 int id = results.getInt("id"); // Patient ID
                 // Format the output from the query and insert into a collection
                 Patient patient = new Patient(name, birthdate, bloodtype, id);

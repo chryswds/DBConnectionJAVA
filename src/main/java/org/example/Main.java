@@ -36,7 +36,7 @@ public class Main {
                 System.out.println("Please select from the following options:\n");
                 System.out.println("1. Insert a patient record");
                 System.out.println("2. Read patient data");
-                System.out.println("3.exit");
+                System.out.println("3. Exit");
                 System.out.println("Enter your choice:\n");
 
                 // Capture the user choice
@@ -54,7 +54,7 @@ public class Main {
                         System.out.println("Enter patient data: ");
                         System.out.println("Name: ");
                         String name = scanner.nextLine();
-                        System.out.println("Date of Birth: ");
+                        System.out.println("Date of Birth (YYYY-MM-DD): ");
                         String birthdate = scanner.nextLine();
                         System.out.println("Blood Type");
                         String bloodtype = scanner.nextLine();
@@ -81,12 +81,12 @@ public class Main {
                             System.out.println("No patients found");
                         }else{
                             System.out.printf("%-5s | %-20s | %-12s | %-8s", "\nID", "Name", "Date", "Blood Type");
-                            System.out.println("-----------------------------------------------------------------");
+                            System.out.println("\n------------------------------------------------------------");
                             // Print out all the patients records into the table
                             // This will require iterating through the patients arraylist
 
                             for(Patient patient : patients){
-                                System.out.printf("%-5s | %-20s | %-12s | %-8s", patient.getPatientID(), patient.getName(), patient.getBloodType(), patient.getBloodType());
+                                System.out.printf("%-5s | %-20s | %-12s | %-8s\n", patient.getPatientID(), patient.getName(), patient.getBirthdate(), patient.getBloodType());
                             }
                             break;
 
@@ -95,36 +95,21 @@ public class Main {
                             System.out.println("Thank you for using our system");
                             System.out.println("System exit");
                             scanner.close(); // IO Stream and we don't want the user to be able to interact with the system
+                            return;
 
+
+                        default:
+                            System.out.println("Invalid choice");
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }else{
             //this means there is an issue either connecting to the db or creating the schema
             System.out.println("There was a problem creating or connecting to the database.. \nPlease check db credentials");
             return;
+
+
         }
+
+
     }
 }
