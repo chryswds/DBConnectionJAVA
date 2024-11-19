@@ -57,8 +57,19 @@ public class Main {
                         String birthdate = scanner.nextLine();
                         System.out.println("Blood Type");
                         String bloodtype = scanner.nextLine();
+                        // Collect all user input
+
+                        Patient newPatient = new Patient(name, birthdate, bloodtype);
+
 
                         // Try adding the patient record
+                        // Check if the process is successful
+                        // Otherwise let the user know
+                        if(dbw.addPatient(newPatient)){
+                            System.out.println("Patient has been inserted successfully");
+                        }else{
+                            System.out.println("Patient could not be inserted, please check all field inputs");
+                        }
                 }
             }
 
