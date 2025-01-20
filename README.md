@@ -1,4 +1,4 @@
-# DBConnectionJAVA Hospital Admin Program
+**Hospital Admin Program**
 
 
 Java program - user is displayed a menu with the following options
